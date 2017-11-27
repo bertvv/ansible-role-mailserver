@@ -1,8 +1,11 @@
 # Ansible role `mailserver`
 
-An Ansible role for PURPOSE. Specifically, the responsibilities of this role are to:
+An Ansible role for installing a mail server on Enterprise Linux 7 (RHEL, CentOS). Specifically, the responsibilities of this role are to:
 
--
+- Install and configure the Postfix service
+- Install and configure the Dovecot service
+- Integrate both services
+- Configure user mailboxes
 
 ## Requirements
 
@@ -42,5 +45,4 @@ Pull requests are also very welcome. The best way to submit a PR is by first cre
 
 ## Contributors
 
-- [Bert Van Vreckem](https://github.com/bertvv/) (maintainer)
 
