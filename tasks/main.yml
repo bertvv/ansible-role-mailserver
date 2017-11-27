@@ -7,16 +7,5 @@
     - "{{ ansible_os_family }}.yml"
   tags: mailserver
 
-- name: Install packages
-  package:
-    name: "{{ item }}"
-    state: installed
-  with_items: "{{ mailserver_packages }}"
-  tags: mailserver
-
-- name: Ensure service is started
-  service:
-    name: "{{ mailserver_service }}"
-    state: started
-    enabled: true
-  tags: mailserver
+- include_tasks: postfix.yml
+- include_tasks: dovecot.yml

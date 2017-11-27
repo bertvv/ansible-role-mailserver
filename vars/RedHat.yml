@@ -3,7 +3,12 @@
 # Distribution-specific variables for RHEL, CentOS, ...
 ---
 
-mailserver_packages:
-  - mailserver
+mailserver_postfix_packages:
+  - postfix
 
-mailserver_service: mailserverd
+mailserver_postfix_service: postfix
+
+mailserver_dovecot_packages:
+  - dovecot
+
+mailserver_dovecot_service: dovecot
