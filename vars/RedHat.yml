@@ -1,0 +1,9 @@
+# roles/mailserver/vars/RedHat.yml
+#
+# Distribution-specific variables for RHEL, CentOS, ...
+---
+
+mailserver_packages:
+  - mailserver
+
+mailserver_service: mailserverd

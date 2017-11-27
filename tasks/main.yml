@@ -1,0 +1,22 @@
+# roles/mailserver/tasks/main.yml
+---
+
+- include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}.yml"
+    - "{{ ansible_os_family }}.yml"
+  tags: mailserver
+
+- name: Install packages
+  package:
+    name: "{{ item }}"
+    state: installed
+  with_items: "{{ mailserver_packages }}"
+  tags: mailserver
+
+- name: Ensure service is started
+  service:
+    name: "{{ mailserver_service }}"
+    state: started
+    enabled: true
+  tags: mailserver

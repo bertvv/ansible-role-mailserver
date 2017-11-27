@@ -1,0 +1,7 @@
+# roles/mailserver/handlers/main.yml
+---
+
+- name: restart mailserver
+  service:
+    name: "{{ mailserver_service }}"
+    state: restarted
