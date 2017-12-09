@@ -22,6 +22,32 @@ No specific requirements
 
 No dependencies.
 
+Ansible role [RHBase](https://github.com/bertvv/ansible-role-rh-base) can be used to apply firewall rules and to create users.
+
+Ports to open:
+
+```
+rhbase_firewall_allow_services:
+  - pop3s
+  - imaps
+rhbase_firewall_allow_ports:
+  - 587/tcp
+  - 465/tcp
+  - 110/tcp
+  - 143/tcp
+```
+
+To creat a user and to create his mailbox:
+
+```
+rhbase_users:
+  - name: johndoe
+    password: '$6$WIFkXf07Kn3kALDp$fHbqRKztuufS895easdT [...]'
+    shell: /sbin/nologin
+```
+
+This created user can login to the mailserver but not into the linux machine.
+
 ## Example Playbook
 
 See the test playbooks in either the [Vagrant](https://github.com/bertvv/ansible-role-mailserver/blob/vagrant-tests/test.yml) or [Docker](https://github.com/bertvv/ansible-role-mailserver/blob/docker-tests/test.yml) test environment. See the section Testing for details.
