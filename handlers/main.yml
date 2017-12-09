@@ -1,7 +1,12 @@
 # roles/mailserver/handlers/main.yml
 ---
 
-- name: restart mailserver
+- name: restart postfix
   service:
-    name: "{{ mailserver_service }}"
+    name: "{{ mailserver_postfix_service }}"
+    state: restarted
+
+- name: restart dovecot
+  service:
+    name: "{{ mailserver_dovecot_service }}"
     state: restarted
