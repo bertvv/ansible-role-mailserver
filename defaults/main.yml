@@ -1,9 +1,4 @@
 # roles/mailserver/defaults/main.yml
 ---
 
-mailserver_postfix_mydomain: localdomain
-mailserver_postfix_myhostname: mail.localdomain
-mailserver_postfix_mydestination:
-  - $myhostname
-  - localhost.$mydomain
-  - localhost
+

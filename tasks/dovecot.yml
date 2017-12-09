@@ -1,4 +1,36 @@
 # tasks/dovecot.yml -- Install and configure Dovecot
 ---
 
+- name: Install Dovecot
+  package:
+    name: "{{ item }}"
+    state: installed
+  with_items: "{{ mailserver_dovecot_packages }}"
+  tags:
+    - mailserver
+    - dovecot
+
+- name: Ensure Dovecot is started
+  service: 
+    name: "{{ mailserver_dovecot_service }}"
+    state: started
+    enabled: true
+  tags:
+    - mailserver
+    - dovecot
+
+- name: Setting dovecot mail location
+  template:
+    - src: 10-mail.conf.j2
+    - dest: /etc/dovecot/conf.d/10-mail.conf
+  notify: restart dovecot
+  tags: dovecot
+
+- name: Applying Outlook 2003 fix
+  lineinfile:
+    - path: /etc/dovecot/conf.d/20-pop3.conf
+    - regexp: '^#pop3_uidl_format'
+    - line: 'pop3_uidl_format = %08Xu%08Xv'
+  notify: restart dovecot
+  tags: dovecot
 
