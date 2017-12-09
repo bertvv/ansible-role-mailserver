@@ -1,6 +1,5 @@
 # tasks/dovecot.yml -- Install and configure Dovecot
 ---
-
 - name: Install Dovecot
   package:
     name: "{{ item }}"
