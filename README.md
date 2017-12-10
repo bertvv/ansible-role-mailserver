@@ -16,7 +16,9 @@ No specific requirements
 
 | Variable   | Default | Comments (type)  |
 | :---       | :---    | :---             |
-| `role_var` | -       | (scalar) PURPOSE |
+| `postfix_myhostname` | mail.bertvv.local      |  |
+| `postfix_mydomain` |  bertvv.local |   |
+| `postfix_home_mailbox`  |  /mail |   path name of the mailbox in the user's home directory|
 
 ## Dependencies
 
@@ -71,4 +73,7 @@ Pull requests are also very welcome. The best way to submit a PR is by first cre
 
 ## Contributors
 
-
+- [Bert Van Vreckem](https://github.com/bertvv)
+- [Pieter-Jan Philips ](https://github.com/dhrpieterjan)
+- [Robbe Devos](https://github.com/devosrobbe)
+- [Stijn De Lannoy](https://github.com/StijnDL)
