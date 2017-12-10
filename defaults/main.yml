@@ -1,7 +1,7 @@
 # roles/mailserver/defaults/main.yml
 ---
-myhostname= mail.bertvv.local
+postfix_myhostname: 'mail.bertvv.local'
 
-mydomain = bertvv.local
+postfix_mydomain: 'bertvv.local'
 
-home_mailbox = mail/
+postfix_home_mailbox: 'mail/'

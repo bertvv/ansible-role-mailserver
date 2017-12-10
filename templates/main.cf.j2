@@ -678,10 +678,10 @@ sample_directory = /usr/share/doc/postfix-2.10.1/samples
 #
 readme_directory = /usr/share/doc/postfix-2.10.1/README_FILES
 
-myhostname= {{postfix_myhostname}}
-mydomain = {{postfix_mydomain}}
+myhostname= {{ postfix_myhostname }}
+mydomain = {{ postfix_mydomain }}
 myorigin = $mydomain
-home_mailbox = {{postfix_home_mailbox}}
+home_mailbox = {{ postfix_home_mailbox }}
 mynetworks = 127.0.0.0/8
 inet_interfaces = all
 mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
