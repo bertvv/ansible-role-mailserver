@@ -18,3 +18,44 @@
   tags:
     - mailserver
     - postfix
+
+- name: Make SSL directory
+  file:
+    path: /etc/postfix/ssl
+    state: directory
+    mode: 0755
+  tags:
+    - mailserver
+    - ssl
+
+- name: Copy SSL key to directory
+  copy:
+    src: files/
+    dest: /etc/postfix/ssl
+    tags:
+      - mailserver
+      - ssl
+
+- name: Install postfix main configuration
+  copy:
+    scr: postfix_main.conf.j2
+    dest: /etc/postfix/main.cf
+    tags:
+      - mailserver
+      - postfix
+
+- name: Install postfix master configuration
+  copy:
+    scr: postfix_master.cf.j2
+    dest: /etc/postfix/master.cf
+    tags:
+      - mailserver
+      - postfix
+
+- name: Install postfix master configuration
+  copy:
+    scr: postfix_master.cf.j2
+    dest: /etc/postfix/master.cf
+    tags:
+      - mailserver
+      - postfix
