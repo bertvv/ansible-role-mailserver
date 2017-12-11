@@ -31,7 +31,7 @@
 - name: Copy SSL key to directory
   copy:
     src: files/
-    dest: {{ postfix_config_dir }}/ssl
+    dest: "{{ postfix_config_dir }}"/ssl
   tags:
     - mailserver
     - ssl
@@ -39,7 +39,7 @@
 - name: Install postfix main configuration1
   template:
     src: postfix_main.cf.j2
-    dest: {{ postfix_config_dir }}/main.cf
+    dest: "{{ postfix_config_dir }}"/main.cf
   tags:
     - postfix
     - mailserver
@@ -48,7 +48,7 @@
 - name: Install postfix master configuration1
   template:
     src: postfix_master.cf.j2
-    dest: {{ postfix_config_dir }}/master.cf
+    dest: "{{ postfix_config_dir }}"/master.cf
   tags:
     - postfix
     - mailserver
