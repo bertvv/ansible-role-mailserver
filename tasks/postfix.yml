@@ -32,30 +32,19 @@
   copy:
     src: files/
     dest: /etc/postfix/ssl
-    tags:
-      - mailserver
-      - ssl
+  tags:
+    - mailserver
+    - ssl
 
-- name: Install postfix main configuration
-  copy:
-    scr: postfix_main.conf.j2
+- name: Install postfix main configuration1
+  template:
+    src: postfix_main.cf.j2
     dest: /etc/postfix/main.cf
-    tags:
-      - mailserver
-      - postfix
+  tags: postfix
 
-- name: Install postfix master configuration
-  copy:
-    scr: postfix_master.cf.j2
+- name: Install postfix master configuration1
+  template:
+    src: postfix_master.cf.j2
     dest: /etc/postfix/master.cf
-    tags:
-      - mailserver
-      - postfix
-
-- name: Install postfix master configuration
-  copy:
-    scr: postfix_master.cf.j2
-    dest: /etc/postfix/master.cf
-    tags:
-      - mailserver
-      - postfix
+  tags: postfix
+  notify: restart postfix
