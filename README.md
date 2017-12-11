@@ -16,8 +16,8 @@ No specific requirements
 
 | Variable   | Default | Comments (type)  |
 | :---       | :---    | :---             |
-| `postfix_myhostname` | mail.bertvv.local      |  |
-| `postfix_mydomain` |  bertvv.local |   |
+| `postfix_myhostname` | mail.bertvv.local      | The internet hostname of this mail systems |
+| `postfix_mydomain` |  bertvv.local |  The internet domain name of this mail system. |
 | `postfix_home_mailbox`  |  /mail |   path name of the mailbox in the user's home directory|
 
 ## Dependencies
@@ -30,13 +30,14 @@ Ports to open:
 
 ```
 rhbase_firewall_allow_services:
-  - pop3s
+  - imap
   - imaps
-rhbase_firewall_allow_ports:
-  - 587/tcp
-  - 465/tcp
-  - 110/tcp
-  - 143/tcp
+  - pop3
+  - pop3s
+  - smtp
+  - smtps
+  - smtp-submission
+
 ```
 
 To creat a user and to create his mailbox:
