@@ -30,7 +30,7 @@
 
 - name: Applying Outlook 2003 fix
   lineinfile:
-    path: {{ dovecot_config_dir }}/20-pop3.conf
+    path: "{{ dovecot_config_dir }}/20-pop3.conf"
     regexp: '^#pop3_uidl_format'
     line: 'pop3_uidl_format = %08Xu%08Xv'
   notify: restart dovecot
@@ -41,7 +41,7 @@
 - name: Now configure Dovecot SASL for SMTP Auth
   template:
     src: 10-master.conf.j2
-    dest: {{ dovecot_config_dir }}/10-master.conf
+    dest: "{{ dovecot_config_dir }}/10-master.conf"
   notify: restart dovecot
   tags:
     - mailserver
@@ -50,7 +50,7 @@
 - name: Setting dovecot authentication mechanisms
   template:
     src: 10-auth.conf.j2
-    dest: {{ dovecot_config_dir }}/10-auth.conf
+    dest: "{{ dovecot_config_dir }}/10-auth.conf"
   notify: restart dovecot
   tags:
     - mailserver
