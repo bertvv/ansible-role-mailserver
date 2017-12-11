@@ -11,7 +11,7 @@
     - dovecot
 
 - name: Ensure Dovecot is started
-  service: 
+  service:
     name: "{{ mailserver_dovecot_service }}"
     state: started
     enabled: true
@@ -24,26 +24,34 @@
     src: 10-mail.conf.j2
     dest: /etc/dovecot/conf.d/10-mail.conf
   notify: restart dovecot
-  tags: dovecot
+  tags:
+    - mailserver
+    - dovecot
 
 - name: Applying Outlook 2003 fix
   lineinfile:
-    path: /etc/dovecot/conf.d/20-pop3.conf
+    path: {{ dovecot_config_dir }}/20-pop3.conf
     regexp: '^#pop3_uidl_format'
     line: 'pop3_uidl_format = %08Xu%08Xv'
   notify: restart dovecot
-  tags: dovecot
+  tags:
+    - mailserver
+    - dovecot
 
 - name: Now configure Dovecot SASL for SMTP Auth
   template:
     src: 10-master.conf.j2
-    dest: /etc/dovecot/conf.d/10-master.conf
+    dest: {{ dovecot_config_dir }}/10-master.conf
   notify: restart dovecot
-  tags: dovecot
+  tags:
+    - mailserver
+    - dovecot
 
 - name: Setting dovecot authentication mechanisms
   template:
     src: 10-auth.conf.j2
-    dest: /etc/dovecot/conf.d/10-auth.conf
+    dest: {{ dovecot_config_dir }}/10-auth.conf
   notify: restart dovecot
-  tags: dovecot
+  tags:
+    - mailserver
+    - dovecot
