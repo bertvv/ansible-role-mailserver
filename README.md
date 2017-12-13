@@ -18,7 +18,7 @@ No specific requirements
 | :---       | :---    | :---             |
 | `postfix_myhostname` | mail.bertvv.local      | The internet hostname of this mail systems |
 | `postfix_mydomain` |  bertvv.local |  The internet domain name of this mail system. |
-| `postfix_home_mailbox`  |  /mail |   path name of the mailbox in the user's home directory|
+| `postfix_home_mailbox`  |  /mail |   Path name of the mailbox in the user's home directory|
 
 ## Dependencies
 
