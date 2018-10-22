@@ -16,3 +16,18 @@ mailserver_dovecot_service: dovecot
 postfix_config_dir: /etc/postfix
 
 dovecot_config_dir: /etc/dovecot/conf.d
+
+spamassassin_packages:
+  - spamassassin
+
+clamav_packages:
+  - clamav-server
+  - clamav-data
+  - clamav-update
+  - clamav-filesystem
+  - clamav
+  - clamav-scanner-systemd
+  - clamav-devel
+  - clamav-lib
+  - clamav-server-systemd
+

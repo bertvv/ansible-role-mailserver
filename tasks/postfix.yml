@@ -53,3 +53,12 @@
     - postfix
     - mailserver
   notify: restart postfix
+
+- name: Create file local-host-names
+  copy:
+    dest: /etc/postfix/local-host-names
+    content: "{{ postfix_mydomain }}"
+  tags:
+    - postfix
+    - mailserver
+  notify: restart postfix

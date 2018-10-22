@@ -6,6 +6,8 @@ An Ansible role for installing a mail server on Enterprise Linux 7 (RHEL, CentOS
 - Install and configure the Dovecot service
 - Integrate both services
 - Configure user mailboxes
+- Install and configure the SpamAssassin service
+- Install and configure the ClamAV Service
 
 ## Requirements
 
@@ -78,3 +80,5 @@ Pull requests are also very welcome. The best way to submit a PR is by first cre
 - [Pieter-Jan Philips ](https://github.com/dhrpieterjan)
 - [Robbe Devos](https://github.com/devosrobbe)
 - [Stijn De Lannoy](https://github.com/StijnDL)
+- [Rob Eggermont](https://github.com/EggermontRob)
+- [Robin De Cock]()
