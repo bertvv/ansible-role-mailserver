@@ -30,7 +30,7 @@
 
 - name: Applying thunderbird fix
   lineinfile:
-    path: "{{ dovecot_config_dir }}/20-imap.conff"
+    path: "{{ dovecot_config_dir }}/20-imap.conf"
     regexp: '^#imap_client_workarounds'
     line: 'imap_client_workarounds = tb-extra-mailbox-sep'
   notify: restart dovecot
