@@ -19,4 +19,5 @@ clamav_packages:
   - clamav-devel
   - clamav-lib
   - clamav-server-systemd
-
+postfix_mynetwork:
+  - 172.16.0.0/16

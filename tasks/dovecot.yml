@@ -28,6 +28,16 @@
     - mailserver
     - dovecot
 
+- name: Applying thunderbird fix
+  lineinfile:
+    path: "{{ dovecot_config_dir }}/20-imap.conff"
+    regexp: '^#imap_client_workarounds'
+    line: 'imap_client_workarounds = tb-extra-mailbox-sep'
+  notify: restart dovecot
+  tags:
+    - mailserver
+    - dovecot
+
 - name: Applying Outlook 2003 fix
   lineinfile:
     path: "{{ dovecot_config_dir }}/20-pop3.conf"
