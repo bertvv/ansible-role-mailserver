@@ -23,7 +23,7 @@
     - mailserver
     - spamassassin
 
-- name: Making sure SpamAssassin will start on boot #To be improved. Will failed on second time run.
+- name: Making sure SpamAssassin will start on boot
   service:
     name: spamassassin
     enabled: yes
@@ -31,7 +31,7 @@
     - mailserver
     - spamassassin
 
-- name: SpamAssassin definition update
+- name: SpamAssassin definition update #To be improved. Will failed on second time run.
   command: sa-update
   tags:
     - mailserver
