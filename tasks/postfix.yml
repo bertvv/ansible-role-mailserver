@@ -62,3 +62,13 @@
     - postfix
     - mailserver
   notify: restart postfix
+
+- name: Insert a line at the end of a file.
+  blockinfile:
+    dest: "{{ postfix_config_dir }}/main.cf"
+    block: |
+      virtual_alias_maps = ldap:/etc/postfix/ldap-aliases.cf
+      local_recipient_maps = $alias_maps, ldap:/etc/postfix/ldap-users.cf
+  when:
+    "{{ postfix_ldap }}"
+    

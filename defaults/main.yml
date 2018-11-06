@@ -21,3 +21,4 @@ clamav_packages:
   - clamav-server-systemd
 postfix_mynetwork:
   - 172.16.0.0/16
+postfix_ldap: false
