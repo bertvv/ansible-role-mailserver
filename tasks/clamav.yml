@@ -17,6 +17,14 @@
   tags:
     - mailserver
     - clamav
+    
+- name: Making sure the ClamdScan service stopped
+  service:
+    name: clamd@scan.service
+    state: stopped
+  tags:
+    - mailserver
+    - clamav
 
 - name: Making sure the ClamdScan service has been started
   service:
