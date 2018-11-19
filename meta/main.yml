@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: mailserver
   author: Eggermont Rob
   description: Installation of a complete mail server (Postfix, Cyrus, ...) on Enterprise Linux 7
   license: BSD
