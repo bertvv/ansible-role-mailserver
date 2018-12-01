@@ -33,6 +33,7 @@
 
 - name: SpamAssassin definition update #To be improved. Will failed on second time run.
   command: sa-update
+  ignore_errors: yes
   tags:
     - mailserver
     - spamassassin

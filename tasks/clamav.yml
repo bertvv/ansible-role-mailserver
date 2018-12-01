@@ -30,6 +30,7 @@
   service:
     name: clamd@scan.service
     state: started
+  ignore_errors: yes
   tags:
     - mailserver
     - clamav
