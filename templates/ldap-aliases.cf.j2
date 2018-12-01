@@ -8,7 +8,7 @@ expansion_limit = 0
 start_tls = yes    
 tls_require_cert = no    
 server_host = ldap://{{ ldap_fqdn1 }}
-search_base = ou={{ ldap_ou }},dc={{ ldap_dcname }},dc={{ ldap_root_domain }}    
+search_base = ou={{ ldap_ou }},dc={{ ldap_dcname }},dc={{ ldap_domainname }},dc={{ ldap_root_domain }}    
 scope = sub    
 query_filter = (mail=%s)    
 result_attribute = mgrpDeliverTo    

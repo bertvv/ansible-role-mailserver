@@ -26,7 +26,8 @@ No specific requirements
 | `ldap_fqdn1`  |  / |   The FQDN of the ldap server |
 | `ldap_ou`  |  / |   The OU where the ldap users are created |
 | `ldap_dcname`  |  / |   The name of the ldap server |
-| `ldap_root_domain`  |  / |   The root domain lever extension of the ldap server |
+| `ldap_domainname`  |  / |   The domainname the network |
+| `ldap_root_domain`  |  / |   The root domain lever extension of the network |
 
 ## Dependencies
 
