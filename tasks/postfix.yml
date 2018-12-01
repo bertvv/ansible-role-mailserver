@@ -63,12 +63,22 @@
     - mailserver
   notify: restart postfix
 
-- name: Insert a line at the end of a file.
+- name: Link ldap files with postfix's main configuration
   blockinfile:
     dest: "{{ postfix_config_dir }}/main.cf"
     block: |
+      alias_maps = hash:/etc/postfix/aliases    
       virtual_alias_maps = ldap:/etc/postfix/ldap-aliases.cf
       local_recipient_maps = $alias_maps, ldap:/etc/postfix/ldap-users.cf
   when:
     "{{ postfix_ldap }}"
-    
+
+- name: Create ldap aliases
+  template:
+    src: ldap-aliases.cf.j2
+    dest: /etc/postfix/ldap-aliases.cf
+
+- name: Create ldap users file
+  template:
+    src: ldap-users.cf.j2
+    dest: /etc/postfix/ldap-userss.cf

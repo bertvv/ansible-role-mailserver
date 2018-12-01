@@ -8,6 +8,7 @@ An Ansible role for installing a mail server on Enterprise Linux 7 (RHEL, CentOS
 - Configure user mailboxes
 - Install and configure the SpamAssassin service
 - Install and configure the ClamAV Service
+- Integrate ldap in postfix
 
 ## Requirements
 
@@ -21,6 +22,11 @@ No specific requirements
 | `postfix_myhostname` | mail.bertvv.local      | The internet hostname of this mail systems |
 | `postfix_mydomain` |  bertvv.local |  The internet domain name of this mail system. |
 | `postfix_home_mailbox`  |  /mail |   Path name of the mailbox in the user's home directory|
+| `postfix_ldap`  |  false |   To use or not to use ldap |
+| `ldap_fqdn1`  |  / |   The FQDN of the ldap server |
+| `ldap_ou`  |  / |   The OU where the ldap users are created |
+| `ldap_dcname`  |  / |   The name of the ldap server |
+| `ldap_root_domain`  |  / |   The root domain lever extension of the ldap server |
 
 ## Dependencies
 
