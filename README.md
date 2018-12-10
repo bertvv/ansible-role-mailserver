@@ -23,11 +23,11 @@ No specific requirements
 | `postfix_mydomain` |  bertvv.local |  The internet domain name of this mail system. |
 | `postfix_home_mailbox`  |  /mail |   Path name of the mailbox in the user's home directory|
 | `postfix_ldap`  |  false |   To use or not to use ldap |
-| `ldap_fqdn1`  |  / |   The FQDN of the ldap server |
-| `ldap_ou`  |  / |   The OU where the ldap users are created |
-| `ldap_dcname`  |  / |   The name of the ldap server |
-| `ldap_domainname`  |  / |   The domainname the network |
-| `ldap_root_domain`  |  / |   The root domain lever extension of the network |
+| `ldap_fqdn1`  |  / |   The FQDN of the ldap server, if `postfix_ldap` is true |
+| `ldap_ou`  |  / |   The OU where the ldap users are created, if `postfix_ldap` is true |
+| `ldap_dcname`  |  / |   The name of the ldap server, if `postfix_ldap` is true |
+| `ldap_domainname`  |  / |   The domainname the network, if `postfix_ldap` is true |
+| `ldap_root_domain`  |  / |   The root domain lever extension of the network, if `postfix_ldap` is true |
 
 ## Dependencies
 
@@ -88,4 +88,4 @@ Pull requests are also very welcome. The best way to submit a PR is by first cre
 - [Robbe Devos](https://github.com/devosrobbe)
 - [Stijn De Lannoy](https://github.com/StijnDL)
 - [Rob Eggermont](https://github.com/EggermontRob)
-- [Robin De Cock]()
+- [Robin De Cock](https://github.com/robinHogent)
