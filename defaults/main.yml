@@ -5,3 +5,20 @@ postfix_myhostname: 'mail.bertvv.local'
 postfix_mydomain: 'bertvv.local'
 
 postfix_home_mailbox: 'mail/'
+
+spamassassin_packages:
+  - spamassassin
+
+clamav_packages:
+  - clamav-server
+  - clamav-data
+  - clamav-update
+  - clamav-filesystem
+  - clamav
+  - clamav-scanner-systemd
+  - clamav-devel
+  - clamav-lib
+  - clamav-server-systemd
+postfix_mynetwork:
+  - 172.16.0.0/16
+postfix_ldap: false

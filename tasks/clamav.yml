@@ -1,0 +1,44 @@
+- name: Install ClamAV
+  package:
+    name: "{{ item }}"
+    state: installed
+  with_items: "{{ clamav_packages }}"
+  tags:
+    - mailserver
+    - clamav
+
+- name: Copy ClamAV config file
+  copy:
+    src: templates/clamd_scan.conf.j2
+    dest: /etc/clamd.d/scan.conf
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - mailserver
+    - clamav
+    
+- name: Making sure the ClamdScan service stopped
+  service:
+    name: clamd@scan.service
+    state: stopped
+  tags:
+    - mailserver
+    - clamav
+
+- name: Making sure the ClamdScan service has been started
+  service:
+    name: clamd@scan.service
+    state: started
+  ignore_errors: yes
+  tags:
+    - mailserver
+    - clamav
+
+- name: Making sure ClamAV will start on boot
+  service:
+    name: clamd@scan.service
+    enabled: yes
+  tags:
+    - mailserver
+    - clamav

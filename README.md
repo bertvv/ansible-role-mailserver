@@ -6,6 +6,9 @@ An Ansible role for installing a mail server on Enterprise Linux 7 (RHEL, CentOS
 - Install and configure the Dovecot service
 - Integrate both services
 - Configure user mailboxes
+- Install and configure the SpamAssassin service
+- Install and configure the ClamAV Service
+- Integrate ldap in postfix
 
 ## Requirements
 
@@ -19,6 +22,12 @@ No specific requirements
 | `postfix_myhostname` | mail.bertvv.local      | The internet hostname of this mail systems |
 | `postfix_mydomain` |  bertvv.local |  The internet domain name of this mail system. |
 | `postfix_home_mailbox`  |  /mail |   Path name of the mailbox in the user's home directory|
+| `postfix_ldap`  |  false |   To use or not to use ldap |
+| `ldap_fqdn1`  |  / |   The FQDN of the ldap server, if `postfix_ldap` is true |
+| `ldap_ou`  |  / |   The OU where the ldap users are created, if `postfix_ldap` is true |
+| `ldap_dcname`  |  / |   The name of the ldap server, if `postfix_ldap` is true |
+| `ldap_domainname`  |  / |   The domainname the network, if `postfix_ldap` is true |
+| `ldap_root_domain`  |  / |   The root domain lever extension of the network, if `postfix_ldap` is true |
 
 ## Dependencies
 
@@ -78,3 +87,5 @@ Pull requests are also very welcome. The best way to submit a PR is by first cre
 - [Pieter-Jan Philips ](https://github.com/dhrpieterjan)
 - [Robbe Devos](https://github.com/devosrobbe)
 - [Stijn De Lannoy](https://github.com/StijnDL)
+- [Rob Eggermont](https://github.com/EggermontRob)
+- [Robin De Cock](https://github.com/robinHogent)

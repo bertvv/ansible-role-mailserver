@@ -9,3 +9,5 @@
 
 - include_tasks: postfix.yml
 - include_tasks: dovecot.yml
+- include_tasks: spamassassin.yml
+- include_tasks: clamav.yml

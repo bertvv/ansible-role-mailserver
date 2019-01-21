@@ -1,0 +1,14 @@
+bind = no    
+version = 3    
+timeout = 20    
+## set the size_limit to 1 since we only    
+## want to find one email address match    
+size_limit = 1    
+expansion_limit = 0    
+start_tls = yes    
+tls_require_cert = no    
+
+server_host = ldap://{{ ldap_fqdn1 }}
+scope = sub    
+search_base = ou={{ ldap_ou }},dc={{ ldap_dcname }},dc={{ ldap_domainname }},dc={{ ldap_root_domain }}      
+query_filter = (mail=%s) 

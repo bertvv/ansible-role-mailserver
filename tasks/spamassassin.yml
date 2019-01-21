@@ -1,0 +1,48 @@
+- name: Install SpamAssassin
+  package:
+    name: "{{ item }}"
+    state: installed
+  with_items: "{{ spamassassin_packages }}"
+  tags:
+    - mailserver
+    - spamassassin
+
+- name: Configuring SpamAssassin
+  copy:
+    content: 'report_safe 0 required_score 8.0 rewrite_header Subject [SPAM]'
+    dest: '/etc/mail/spamassassin/local.cf'
+  tags:
+    - mailserver
+    - spamassassin
+
+- name: Making sure SpamAssassin has been started.
+  service:
+    name: spamassassin
+    state: started
+  tags:
+    - mailserver
+    - spamassassin
+
+- name: Making sure SpamAssassin will start on boot
+  service:
+    name: spamassassin
+    enabled: yes
+  tags:
+    - mailserver
+    - spamassassin
+
+- name: SpamAssassin definition update #To be improved. Will failed on second time run.
+  command: sa-update
+  ignore_errors: yes
+  tags:
+    - mailserver
+    - spamassassin
+
+- name: Creating user for SpamAssassin
+  user:
+    name: spamd
+    state: present
+    shell: /bin/false
+  tags:
+    - mailserver
+    - spamassassin

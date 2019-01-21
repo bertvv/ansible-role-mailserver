@@ -1,6 +1,7 @@
 ---
 galaxy_info:
-  author: 
+  role_name: mailserver
+  author: Eggermont Rob
   description: Installation of a complete mail server (Postfix, Cyrus, ...) on Enterprise Linux 7
   license: BSD
   min_ansible_version: 2.0
@@ -12,4 +13,3 @@ galaxy_info:
     - mail
     - smtp
     - imap
-dependencies: []

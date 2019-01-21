@@ -8,7 +8,7 @@
 # service type  private unpriv  chroot  wakeup  maxproc command + args
 #               (yes)   (yes)   (yes)   (never) (100)
 # ==========================================================================
-smtp      inet  n       -       n       -       -       smtpd
+smtp      inet  n       -       n       -       -       -o content_filter=spamassassin
 submission     inet  n       -       n       -       -       smtpd
   -o syslog_name=postfix/submission
   -o smtpd_sasl_auth_enable=yes
@@ -135,3 +135,5 @@ scache    unix  -       -       n       -       1       scache
 #mailman   unix  -       n       n       -       -       pipe
 #  flags=FR user=list argv=/usr/lib/mailman/bin/postfix-to-mailman.py
 #  ${nexthop} ${user}
+spamassassin unix - n n - - pipe flags=R user=spamd argv=/usr/bin/spamc -e /usr/sbin/sendmail -oi -f ${sender} ${recipient}
+
