@@ -89,3 +89,4 @@ Pull requests are also very welcome. The best way to submit a PR is by first cre
 - [Stijn De Lannoy](https://github.com/StijnDL)
 - [Rob Eggermont](https://github.com/EggermontRob)
 - [Robin De Cock](https://github.com/robinHogent)
+- [Paulo Edgar Castro](https://github.com/pecastro)
