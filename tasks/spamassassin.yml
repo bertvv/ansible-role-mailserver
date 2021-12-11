@@ -9,7 +9,10 @@
 
 - name: Configuring SpamAssassin
   copy:
-    content: 'report_safe 0 required_score 8.0 rewrite_header Subject [SPAM]'
+    content: |
+      report_safe 0
+      required_score 8.0
+      rewrite_header Subject [SPAM]
     dest: '/etc/mail/spamassassin/local.cf'
   tags:
     - mailserver
